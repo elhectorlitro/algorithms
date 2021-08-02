@@ -23,7 +23,12 @@ def QuickSort(unsorted_list):
             else : 
                 pivot_list.append(compare)
         return QuickSort(less) + QuickSort(pivot_list) + QuickSort(more)
-
-to_sort = GenerateRandomList(2,14,8)
-print(to_sort)
-print(QuickSort(to_sort))
+print("Type the minimum value of the random list you want to create: ")
+Min = int(input())
+print("Type the maximum value of the random list you want to create: ")
+Max = int(input())
+print("Type the number of the elements for the random list you want to create: ")
+Num = int(input())
+to_sort = GenerateRandomList(Min,Max,Num)
+print("Unsorted list: " + str(to_sort))
+print("Sorted list: " + str(QuickSort(to_sort)))
