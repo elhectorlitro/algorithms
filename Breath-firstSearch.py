@@ -1,5 +1,5 @@
 import random 
-
+import collections 
 
 graph = {}
 graph["origin"] = ["a", "b", "c", "d", "e", "f"]
@@ -32,6 +32,23 @@ graph["x"] = ["o"]
 graph["y"] = ["z"]
 graph["z"] = ["y"]
 
-def BreadthFirstSearch():
-   return 0
+def BreadthFirstSearch(gra, dep, obj):#You give the graph, element you're departuring from and the node that is your objective
+   queue = []#Creates a new queue
+   queue.append(gra[dep])#You add the departing node as the first on the queue
+   while queue: #Until the queue gets empty 
+     node = queue.pop() #pop the queue
+     if Contains(node, obj) : 
+          print("Found a way to the node")
+          return True
+     else : 
+          queue.append(gra["node"])#If it does not contain, a path to the objective, add the node to the queue
+   return False
+
+def Contains(node, obj):
+     if obj in node:
+         print(str(obj)+" contained") 
+         return True
+     else : return False
+
+print(BreadthFirstSearch(graph,"origin","a"))
 
